@@ -29,25 +29,20 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # --- WINDOWS BUILD STEP ---
+    # --- WINDOWS BUILD STEP (FIXED) ---
     - name: Build with PyInstaller (Windows)
       if: matrix.os == 'windows-latest'
+      # FIXED: Removed fragile backticks. Uses single-line command for stability.
       run: |
-        # Find where tkinterdnd2 is installed to add it as data
         $TKDND_PATH = python -c "import tkinterdnd2, os; print(os.path.dirname(tkinterdnd2.__file__))"
-        echo "TkinterDnD path is $TKDND_PATH"
+        echo "TkinterDnD path found at: $TKDND_PATH"
         
-        pyinstaller --noconfirm --onefile --windowed --clean `
-          --name "PDFToolkit" `
-          --hidden-import "tkinterdnd2" `
-          --add-data "$TKDND_PATH;tkinterdnd2" `
-          PDFCompressorApp.py
+        pyinstaller --noconfirm --onefile --windowed --clean --name "PDFCompressorApp" --hidden-import "tkinterdnd2" --add-data "$TKDND_PATH;tkinterdnd2" PDFCompressorApp.py
 
     # --- MACOS BUILD STEP ---
     - name: Build with PyInstaller (macOS)
       if: matrix.os == 'macos-latest'
       run: |
-        # Find where tkinterdnd2 is installed
         TKDND_PATH=$(python -c "import tkinterdnd2, os; print(os.path.dirname(tkinterdnd2.__file__))")
         echo "TkinterDnD path is $TKDND_PATH"
         
