@@ -41,7 +41,7 @@ jobs:
           --name "PDFToolkit" `
           --hidden-import "tkinterdnd2" `
           --add-data "$TKDND_PATH;tkinterdnd2" `
-          pdf_toolkit.py
+          PDFCompressorApp.py
 
     # --- MACOS BUILD STEP ---
     - name: Build with PyInstaller (macOS)
@@ -52,22 +52,22 @@ jobs:
         echo "TkinterDnD path is $TKDND_PATH"
         
         pyinstaller --noconfirm --onefile --windowed --clean \
-          --name "PDFToolkit" \
+          --name "PDFCompressorApp" \
           --hidden-import "tkinterdnd2" \
           --add-data "$TKDND_PATH:tkinterdnd2" \
-          pdf_toolkit.py
+          PDFCompressorApp.py
 
     # --- UPLOAD ARTIFACTS ---
     - name: Upload Windows Artifact
       if: matrix.os == 'windows-latest'
       uses: actions/upload-artifact@v4
       with:
-        name: PDFToolkit-Windows
-        path: dist/PDFToolkit.exe
+        name: PDFCompressorApp-Windows
+        path: dist/PDFCompressorApp.exe
 
     - name: Upload macOS Artifact
       if: matrix.os == 'macos-latest'
       uses: actions/upload-artifact@v4
       with:
-        name: PDFToolkit-macOS
-        path: dist/PDFToolkit.app
+        name: PDFCompressorApp-macOS
+        path: dist/PDFCompressorApp.app
