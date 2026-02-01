@@ -1,123 +1,29 @@
-# 🌸 PDF for Linh 🌸
+# PDF Toolkit - Modern UI Edition
 
-Ứng dụng chia nhỏ và gộp file PDF với giao diện dễ thương 💕
+A clean, modern, flat-UI desktop application for managing PDF files. Built with Python and Tkinter, featuring a dark mode interface and Drag & Drop support.
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-lightgrey)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.9%2B-yellow.svg)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-lightgrey.svg)
 
-## ✨ Tính năng
+## 🌟 Features
 
-### ✂️ Chia PDF (Split)
-- Chia theo khoảng trang tùy chọn (VD: `1-3, 4-6, 7-10`)
-- Chia từng trang riêng lẻ (VD: `1, 3, 5, 7`)
-- Kết hợp cả hai cách (VD: `1-3, 5, 7-10`)
-- **Tự động lưu** cùng thư mục với file gốc
+* **Clean Dark UI:** Modern flat design with large typography.
+* **Drag & Drop:** Easily drag PDF files directly into the application.
+* **Compress:** Reduce file size with 3 quality presets (Screen, eBook, Printer).
+* **Merge:** Combine multiple PDFs into a single document.
+* **Split:** Extract specific pages or ranges (e.g., `1-5`, `10-end`).
+* **Robust Backend:** Uses Ghostscript for reliable PDF processing.
 
-### 📎 Gộp PDF (Join)
-- Gộp nhiều file PDF thành một
-- Sắp xếp thứ tự file trước khi gộp (lên/xuống)
-- **Tự động đặt tên** file (Merged_PDF_timestamp.pdf)
-- **Tự động lưu** cùng thư mục với file đầu tiên
+## 🛠 Prerequisites
 
-### 🎀 Giao diện dễ thương
-- Màu pastel hồng, tím, vàng nhạt
-- Icon emoji cute
-- Font tròn dễ đọc
-- Nút bấm đổi màu khi hover
-- Thông báo vui vẻ 💕
+This application relies on **Ghostscript** for PDF processing.
 
-## 📥 Cài đặt
+### Windows
+1.  Download and install Ghostscript (AGPL Release) from the [official website](https://www.ghostscript.com/releases/gsdnld.html).
+2.  Ensure the installer adds Ghostscript to your system PATH (usually selected by default).
 
-### Cách 1: Tải app đã build sẵn (Khuyên dùng)
-
-1. Vào tab **[Actions](../../actions)** của repo này
-2. Click vào workflow **Build macOS App** mới nhất ✅
-3. Kéo xuống phần **Artifacts**
-4. Tải về:
-   - **PDF-for-Linh-macOS-DMG** (cho macOS)
-   - **PDF-for-Linh-Windows** (cho Windows)
-
-#### 🍎 Mở app trên macOS lần đầu
-Vì app chưa có chữ ký Apple, macOS sẽ chặn. Làm theo cách này:
-1. Click chuột phải vào app
-2. Chọn **Open**
-3. Click **Open** trong popup
-
-### Cách 2: Chạy từ source code
-
+### macOS
+Install via Homebrew:
 ```bash
-# Clone repo
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO
-
-# Cài thư viện
-pip3 install PyPDF2
-
-# Chạy app
-python3 pdf_tool.py
-```
-
-### Cách 3: Tự build app trên máy
-
-```bash
-# Cài PyInstaller
-pip3 install pyinstaller PyPDF2
-
-# Build app
-pyinstaller --onefile --windowed --name "PDF for Linh" pdf_tool.py
-
-# App nằm trong thư mục dist/
-```
-
-## 🖥️ Yêu cầu hệ thống
-
-| Hệ điều hành | Phiên bản |
-|--------------|-----------|
-| macOS | 10.15 (Catalina) trở lên |
-| Windows | Windows 10 trở lên |
-| Python | 3.9+ (nếu chạy từ source) |
-
-## 📁 Cấu trúc project
-
-```
-├── pdf_tool.py              # Code chính
-├── requirements.txt         # Dependencies
-├── README.md                # File này
-├── .gitignore              # Ignore files
-└── .github/
-    └── workflows/
-        └── build.yml        # GitHub Actions workflow
-```
-
-## 🐛 Lỗi thường gặp
-
-| Lỗi | Cách sửa |
-|-----|----------|
-| "App can't be opened" | Click chuột phải → Open |
-| "Python not found" | Cài Python: `brew install python` |
-| "No module named PyPDF2" | Chạy: `pip3 install PyPDF2` |
-| "tkinter not found" | Chạy: `brew install python-tk` |
-
-## 📝 Cách sử dụng
-
-### Chia PDF
-1. Mở app → Tab **✂️ Chia PDF**
-2. Click **🔍 Chọn file** → chọn file PDF
-3. Nhập khoảng trang (VD: `1-5, 6-10`)
-4. Click **✂️ CHIA FILE ✂️**
-5. File mới sẽ lưu cùng thư mục với file gốc 🎉
-
-### Gộp PDF
-1. Mở app → Tab **📎 Gộp PDF**
-2. Click **➕ Thêm** → chọn các file PDF
-3. Dùng **⬆️ ⬇️** để sắp xếp thứ tự
-4. Click **📎 GỘP FILE 📎**
-5. File mới sẽ lưu cùng thư mục với file đầu tiên 🎉
-
-## 💕 Credit
-
-Made with love for Linh ✨
-
-## 📄 License
-
-MIT License
+brew install ghostscript

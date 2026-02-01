@@ -1,2 +1,5 @@
-PyPDF2>=3.0.0
-pyinstaller>=6.0.0
+# GUI Dependencies
+tkinterdnd2>=0.3.0
+
+# Build Tools
+pyinstaller>=6.3.0
